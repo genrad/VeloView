@@ -74,7 +74,7 @@ superbuild_add_project(paraview
     #-DPYTHONQT_INCLUDE_DIR:PATH=<INSTALL_DIR>/include/PythonQt
     #-DPYTHONQT_LIBRARY:PATH=<INSTALL_DIR>/lib/libPythonQt.so
 
-    -DModule_vtklibproj4:BOOL=TRUE
+    -DModule_vtklibproj:BOOL=TRUE
 
     -DPQWIDGETS_DISABLE_QTWEBKIT:BOOL=ON
 

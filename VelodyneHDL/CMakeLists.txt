@@ -45,8 +45,8 @@ else(ParaView_SOURCE_DIR)
 
 endif(ParaView_SOURCE_DIR)
 
-vtk_module_load(vtklibproj4)
-include_directories(${SYSTEM_OPTION} ${vtklibproj4_INCLUDE_DIRS})
+vtk_module_load(vtklibproj)
+include_directories(${SYSTEM_OPTION} ${vtklibproj_INCLUDE_DIRS})
 include_directories(${SYSTEM_OPTION} ${PYTHONQT_INCLUDE_DIRS})
 
 #--------------------------------------
@@ -284,7 +284,7 @@ list(APPEND deps
   ${liblas_LIBRARY}
   ${ALL_BOOST_LIBRARIES}
   "vtkIOInfovis" # https://public.kitware.com/pipermail/paraview/2016-January/036010.html
-  ${vtklibproj4_LIBRARIES}
+  ${vtklibproj_LIBRARIES}
   ${PCL_LIBRARIES}
   ${CERES_LIBRARIES}
   )
