@@ -229,7 +229,25 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionShowPosition"/>
+   </widget>
+
+   <widget class="QDockWidget" name="outputWidgetDock">
+   <property name="floating">
+     <bool>true</bool>
+   </property>
+   <property name="windowTitle">
+     <string>Output Messages</string>
+   </property>
+   <attribute name="dockWidgetArea">
+     <number>8</number>
+   </attribute>
+   <widget class="pqOutputWidget" name="outputWidget">
+     <property name="settingsKey" stdset="0">
+       <string>OutputMessages</string>
+     </property>
+   </widget>
   </widget>
+
   <widget class="QDockWidget" name="colorMapEditorDock">
    <property name="windowTitle">
     <string>Color Map Editor</string>
@@ -938,6 +956,12 @@
    <class>pqStatusBar</class>
    <extends>QStatusBar</extends>
    <header>pqStatusBar.h</header>
+  </customwidget>
+  <customwidget>
+   <class>pqOutputWidget</class>
+   <extends>QWidget</extends>
+   <header>pqOutputWidget.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>

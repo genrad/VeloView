@@ -46,7 +46,7 @@
 #include <pqObjectBuilder.h>
 #include <pqPersistentMainWindowStateBehavior.h>
 #include <pqPythonShellReaction.h>
-#include <pqQtMessageHandlerBehavior.h>
+#include <pqOutputWidget.h>
 #include <pqRenderView.h>
 #include <pqRenderViewSelectionReaction.h>
 #include <pqDeleteReaction.h>
@@ -134,7 +134,6 @@ private:
     pgm->addInterface(new pqStandardViewFrameActionsImplementation(pgm));
 
     // Define application behaviors.
-    new pqQtMessageHandlerBehavior(window);
     new pqDataTimeStepBehavior(window);
     new pqSpreadSheetVisibilityBehavior(window);
     new pqObjectPickingBehavior(window);
@@ -268,6 +267,7 @@ private:
     window->tabifyDockWidget(this->Ui.displayPropertiesDock, this->Ui.colorMapEditorDock);
     window->tabifyDockWidget(this->Ui.spreadSheetDock, this->Ui.informationDock);
     window->tabifyDockWidget(this->Ui.spreadSheetDock, this->Ui.memoryInspectorDock);
+    window->tabifyDockWidget(this->Ui.spreadSheetDock, this->Ui.outputWidgetDock);
 
     // hide docker by default
     this->Ui.pipelineBrowserDock->hide();
@@ -346,9 +346,6 @@ private:
 
     connect(this->Ui.actionResetDefaultSettings, SIGNAL(triggered()),
       pqVelodyneManager::instance(), SLOT(onResetDefaultSettings()));
-
-    connect(this->Ui.actionShowErrorDialog, SIGNAL(triggered()), pqApplicationCore::instance(),
-      SLOT(showOutputWindow()));
   }
 };
 
@@ -392,6 +389,11 @@ vvMainWindow::vvMainWindow()
   ss << SOFTWARE_NAME << " User Guide";
   text = QString(ss.str().c_str());
   this->Internals->Ui.actionVeloViewUserGuide->setText(text);
+
+  // Display qt error messages
+  connect(this->Internals->Ui.outputWidget,
+          SIGNAL(messageDisplayed(const QString&, int)),
+          SLOT(handleMessage(const QString &, int)));
 }
 
 //-----------------------------------------------------------------------------
@@ -447,3 +449,27 @@ void vvMainWindow::showHelpForProxy(const QString& groupname, const
 {
   pqHelpReaction::showProxyHelp(groupname, proxyname);
 }
+
+void vvMainWindow::handleMessage(const QString&, int type)
+{
+  QDockWidget* dock = this->Internals->Ui.outputWidgetDock;
+  if (!dock->isVisible() && (type == pqOutputWidget::ERROR || type == pqOutputWidget::WARNING))
+  {
+    // if dock is not visible, we always pop it up as a floating dialog. This
+    // avoids causing re-renders which may cause more errors and more confusion.
+    QRect rectApp = this->geometry();
+
+    QRect rectDock(
+      QPoint(0, 0), QSize(static_cast<int>(rectApp.width() * 0.4), dock->sizeHint().height()));
+    rectDock.moveCenter(
+      QPoint(rectApp.center().x(), rectApp.bottom() - dock->sizeHint().height() / 2));
+    dock->setFloating(true);
+    dock->setGeometry(rectDock);
+    dock->show();
+  }
+  if (dock->isVisible())
+  {
+    dock->raise();
+  }
+}
+
