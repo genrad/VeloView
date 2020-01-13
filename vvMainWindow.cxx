@@ -73,6 +73,8 @@
 #include <QMenu>
 #include <QMimeData>
 #include <QUrl>
+#include <QDragEnterEvent>
+#include <QDropEvent>
 
 #include <cassert>
 #include <iostream>
