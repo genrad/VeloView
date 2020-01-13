@@ -14,7 +14,7 @@ superbuild_set_revision(pythonqt
 
 set(PARAVIEW_VERSION 5.6.1)
 superbuild_set_revision(paraview
-  GIT_REPOSITORY https://gitlab.kitware.com/bjacquet/paraview.git
+  GIT_REPOSITORY git@github.com:genrad/paraview.git
   GIT_TAG origin/5.6.1CustomForLidarView)
 
 superbuild_set_revision(veloview
