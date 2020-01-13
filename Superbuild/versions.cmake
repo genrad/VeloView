@@ -56,7 +56,7 @@ superbuild_set_revision(glog
 
 superbuild_set_revision(pcl
   GIT_REPOSITORY git://github.com/PointCloudLibrary/pcl.git
-  GIT_TAG pcl-1.8.1)
+  GIT_TAG pcl-1.9.1)
 
 superbuild_set_revision(qhull
     GIT_REPOSITORY git://github.com/qhull/qhull.git
