@@ -52,7 +52,7 @@ superbuild_set_revision(ceres
 
 superbuild_set_revision(glog
   GIT_REPOSITORY https://github.com/google/glog.git
-  GIT_TAG 8d7a107d68c127f3f494bb7807b796c8c5a97a82)
+  GIT_TAG 0.4.0)
 
 superbuild_set_revision(pcl
   GIT_REPOSITORY git://github.com/PointCloudLibrary/pcl.git
