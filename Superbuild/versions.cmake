@@ -12,10 +12,10 @@ superbuild_set_revision(pythonqt
   GIT_REPOSITORY http://github.com/commontk/PythonQt.git
   GIT_TAG patched-8)
 
-set(PARAVIEW_VERSION 5.4)
+set(PARAVIEW_VERSION 5.6.1)
 superbuild_set_revision(paraview
   GIT_REPOSITORY https://gitlab.kitware.com/bjacquet/paraview.git
-  GIT_TAG origin/5.4CustomForVeloview-withPointCloudRepPlugin)
+  GIT_TAG origin/5.6.1CustomForLidarView)
 
 superbuild_set_revision(veloview
     SOURCE_DIR ${CMAKE_SOURCE_DIR}/..
