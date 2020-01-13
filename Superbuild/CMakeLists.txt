@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 2.8.8)
 
 project(VeloViewSuperBuild)
+set (CMAKE_EXPORT_COMPILE_COMMANDS 1)
 set (SuperBuild_CMAKE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/CMake")
 set (SuperBuild_PROJECTS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Projects")
 set (SuperBuild_BINARY_DIR ${VeloViewSuperBuild_BINARY_DIR}) # required to do FindPackage(ParaView) inside Veloview's CMakeLists

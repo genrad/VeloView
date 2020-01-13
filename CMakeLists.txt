@@ -17,6 +17,7 @@ include("SoftwareInformation/branding.cmake")
 project(VeloView)
 
 set (CMAKE_CXX_STANDARD 11)
+set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 
 if (MSVC)
     # warning level all
