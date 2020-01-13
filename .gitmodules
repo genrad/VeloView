@@ -3,4 +3,4 @@
 	url = ../VeloView-TestData.git
 [submodule "Superbuild/common-superbuild"]
 	path = Superbuild/common-superbuild
-	url = https://gitlab.kitware.com/paraview/common-superbuild
+	url = git@github.com:genrad/paraview-common-superbuild.git
