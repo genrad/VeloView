@@ -132,7 +132,9 @@ find_package(PythonQt REQUIRED)
 # Find the PythonQt plugin library in ParaView lib directory
 get_target_property(paraview_lib_location pqCore LOCATION)
 get_filename_component(paraview_lib_location ${paraview_lib_location} PATH)
-find_library(PYTHONQTPLUGIN_LIBRARY PythonQtPlugin HINTS ${paraview_lib_location}  DOC "ParaView PythonQt plugin library")
+find_library(PYTHONQTPLUGIN_LIBRARY PythonQtPlugin
+  HINTS ${paraview_lib_location}/paraview-5.6/plugins/PythonQtPlugin
+  DOC "ParaView PythonQt plugin library")
 mark_as_advanced(PYTHONQTPLUGIN_LIBRARY)
 
 if(WIN32 AND MSVC)
