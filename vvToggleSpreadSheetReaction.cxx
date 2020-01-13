@@ -31,7 +31,7 @@ vvToggleSpreadSheetReaction::vvToggleSpreadSheetReaction(QAction* action, pqView
     pqSpreadSheetView* ssview = qobject_cast<pqSpreadSheetView*>(this->View);
 
     // XYZ column
-    ssview->getViewModel()->setVisible(1, false);
+//    ssview->getViewModel()->setVisible(1, false);
   }
 
   QObject::connect(this->Action, SIGNAL(triggered()), this, SLOT(onToggleSpreadsheet()));
