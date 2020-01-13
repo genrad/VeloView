@@ -27,8 +27,8 @@ if (WIN32)
     GIT_TAG master)
 else()
   superbuild_set_revision(pcap
-    URL "http://www.tcpdump.org/release/libpcap-1.4.0.tar.gz"
-    URL_MD5 "56e88a5aabdd1e04414985ac24f7e76c")
+    URL "http://www.tcpdump.org/release/libpcap-1.9.1.tar.gz"
+    URL_HASH SHA256=635237637c5b619bcceba91900666b64d56ecb7be63f298f601ec786ce087094)
 endif()
 
 # General
