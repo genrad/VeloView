@@ -25,7 +25,7 @@ from paraview import vtk
 import PythonQt
 from PythonQt import QtCore, QtGui
 
-from vtkIOXMLPython import vtkXMLPolyDataWriter
+from vtk.vtkIOXMLPython import vtkXMLPolyDataWriter
 import kiwiviewerExporter
 import gridAdjustmentDialog
 import aboutDialog
