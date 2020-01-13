@@ -40,12 +40,12 @@ superbuild_set_revision(boost
 
 superbuild_set_revision(eigen
   GIT_REPOSITORY https://github.com/eigenteam/eigen-git-mirror.git
-  GIT_TAG 3.2.10)
+  GIT_TAG 3.3.7)
 
 superbuild_set_revision(liblas
   URL     "http://www.paraview.org/files/dependencies/libLAS-1.8.1.tar.bz2"
   URL_MD5 2e6a975dafdf57f59a385ccb87eb5919)
-  
+
 superbuild_set_revision(ceres
   GIT_REPOSITORY https://ceres-solver.googlesource.com/ceres-solver
   GIT_TAG 1.14.0)
