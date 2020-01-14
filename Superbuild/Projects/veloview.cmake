@@ -1,5 +1,5 @@
 superbuild_add_project(veloview
-  DEPENDS paraview qt5 pcap boost eigen liblas
+  DEPENDS paraview qt5 pcap boost eigen liblas pcl
   DEFAULT_ON
   CMAKE_ARGS
     -DBUILD_SHARED_LIBS:BOOL=ON
@@ -9,10 +9,10 @@ superbuild_add_project(veloview
     -DPYTHONQT_DIR:PATH=<INSTALL_DIR>
     -DVTK_DIR:PATH=${SuperBuild_BINARY_DIR}/common-superbuild/paraview/build/VTK
     -DCMAKE_CXX_STANDARD:STRING=${CMAKE_CXX_STANDARD}
-    -DBOOST_ROOT:PATH=<INSTALL_DIR>
-    -DBOOST_LIBRARYDIR:PATH=<INSTALL_DIR>/lib
+    # -DBOOST_ROOT:PATH=/usr
+    #    -DBOOST_LIBRARYDIR:PATH=<INSTALL_DIR>/lib
     -Dqt_version:STRING=${qt_version}
-    -DPCL_DIR:PATH=<INSTALL_DIR>/share/pcl-1.8/
+    -DPCL_DIR:PATH=<INSTALL_DIR>/share/pcl-1.9/
 )
 
 if (WIN32 OR APPLE)

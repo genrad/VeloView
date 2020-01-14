@@ -79,7 +79,7 @@ include_directories(${SYSTEM_OPTION} ${EIGEN_INCLUDE_DIR})
 #--------------------------------------
 # PCL dependency
 #--------------------------------------
-option(ENABLE_PCL OFF "PCL will be required for filters using pcl (PCLRansacFilter, Slam, ...)")
+option(ENABLE_PCL ON "PCL will be required for filters using pcl (PCLRansacFilter, Slam, ...)")
 if (ENABLE_PCL)
   find_package(PCL REQUIRED)
   include_directories(${SYSTEM_OPTION} ${PCL_INCLUDE_DIRS})
