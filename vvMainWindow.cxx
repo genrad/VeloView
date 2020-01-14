@@ -280,6 +280,7 @@ private:
     this->Ui.spreadSheetDock->hide();
     this->Ui.informationDock->hide();
     this->Ui.memoryInspectorDock->hide();
+    this->Ui.outputWidgetDock->hide();
 
     // Setup the View menu. This must be setup after all toolbars and dockwidgets
     // have been created.
