@@ -31,7 +31,7 @@ def showDialog(mainWindow):
                 return widget
 
     image = w('splashLabel')
-    splash = image.pixmap.scaled(image.pixmap.width()/2.0, image.pixmap.height()/2.0)
+    splash = image.pixmap.scaled(image.pixmap.width(), image.pixmap.height())
     image.setPixmap(splash)
     image.adjustSize()
 
@@ -40,31 +40,23 @@ def showDialog(mainWindow):
     appBitTag = mainWindow.windowTitle.split(" ")[2]
     dialog.windowTitle = "About " + appName + " ..."
     copyrightText = '''<h1>{0} {1} {2}</h1><br/>
-                       Copyright (c) 2017, Velodyne Lidar,
+                       Copyright (c) 2020, General Radar<br>
+                       Copyright (c) 2017, Velodyne Lidar<br>
                        Copyright (c) 2017, Kitware<br />
-                       Provided by <a href="http://velodynelidar.com/">Velodyne Lidar</a>, coded by <a href="https://www.kitware.com/">Kitware</a>.<br />
-                       <br />
-                       Sample Data Repository: <a href="http://midas3.kitware.com/midas/community/29">http://midas3.kitware.com/midas/community/29</a>
                     '''.format(appName, appVersionTag, appBitTag)
     w('copyrightLabel').setText(copyrightText)
-    
-    textBoxContent = '''<h4>Want more ? Ask Kitware !</h4>
-                        Kitware Inc. is a leading provider of open-source software systems for technical and scientific computing.
-                        We are the developers of VeloView, providing real-time interactive visualization of live captured 3D LiDAR
-                        data from Velodyne's sensors. We create customized solutions providing detection and tracking of people,
-                        street signs, lane markings, vehicles, industrial machinery, and building facades from within VeloView or using
-                        combinations of point cloud and video data. We also provide Lidar-based SLAM algorithms for other Velodyne's integrators.
-                        We work with customers to create tailored solutions using proven open-source
-                        technologies, avoiding vendor lock-in and leveraging our world-leading experience in visualization, computer vision, high-performance
-                        computing, and test-driven high-quality software process.<br />
+
+    textBoxContent = '''General Radar is a venture backed startup that is
+                        developing state-of-the-art, high-resolution imaging radar for autonomous
+                        vehicles and robotics.
                         <br />
                         <br />
-                        Have a look at <a href="https://www.kitware.com/our-expertise/">our expertise</a>, and for more information, please contact us: 
-                        <a href="mailto:kitware@kitware.fr?subject=Contact+about+VeloView">kitware@kitware.fr</a>
+                        Have a look at <a href="https://genrad.io">our website</a> for more
+                        information.
                      '''
     w('detailsLabel').setText(textBoxContent)
-    
-    
+
+
     button = w('closeButton')
     closeIcon = QtGui.QApplication.style().standardIcon(QtGui.QStyle.SP_DialogCloseButton)
     button.setIcon(closeIcon)

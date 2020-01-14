@@ -1,12 +1,12 @@
-set(SOFTWARE_NAME "VeloView")
-set(VENDOR "Velodyne Lidar")
+set(SOFTWARE_NAME "grview")
+set(VENDOR "General Radar")
 set(PROJECT_NAME "${SOFTWARE_NAME}")
 
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "${SOFTWARE_NAME}")
 set(CPACK_PACKAGE_NAME "${SOFTWARE_NAME}")
 set(CPACK_PACKAGE_VENDOR "${VENDOR}")
 
-set(PARAVIEW_SPLASH_IMAGE Splash.jpg)	# (image display when the software is loading)
+set(PARAVIEW_SPLASH_IMAGE splash.png)	# (image display when the software is loading)
 set(PARAVIEW_BUNDLE_ICON logo.icns)	# (bunbled app icon)
 set(PARAVIEW_APPLICATION_ICON logo.ico)	# (app icon)
 
