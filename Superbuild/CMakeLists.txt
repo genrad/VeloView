@@ -2,6 +2,18 @@ cmake_minimum_required(VERSION 2.8.8)
 
 project(VeloViewSuperBuild)
 set (CMAKE_EXPORT_COMPILE_COMMANDS 1)
+option (COLOR_DIAGNOSTICS "Output compiler diagnostics with color." TRUE)
+if (${COLOR_DIAGNOSTICS})
+  if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fdiagnostics-color=always")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fdiagnostics-color=always")
+  elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fcolor-diagnostics")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fcolor-diagnostics")
+     add_compile_options ()
+  endif()
+endif()
+
 set (SuperBuild_CMAKE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/CMake")
 set (SuperBuild_PROJECTS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Projects")
 set (SuperBuild_BINARY_DIR ${VeloViewSuperBuild_BINARY_DIR}) # required to do FindPackage(ParaView) inside Veloview's CMakeLists
