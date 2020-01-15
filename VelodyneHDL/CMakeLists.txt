@@ -174,6 +174,9 @@ list(APPEND servermanager_sources
   ${CMAKE_CURRENT_SOURCE_DIR}/IO/Lidar/Common/vtkLidarReader.cxx
   ${CMAKE_CURRENT_SOURCE_DIR}/IO/Lidar/Common/vtkLidarStream.cxx
   ${CMAKE_CURRENT_SOURCE_DIR}/IO/Lidar/Common/vtkLidarPacketInterpreter.cxx
+  ${CMAKE_CURRENT_SOURCE_DIR}/IO/Radar/vtkRadarStream.cxx
+  ${CMAKE_CURRENT_SOURCE_DIR}/IO/Radar/vtkRadarProvider.cxx
+  ${CMAKE_CURRENT_SOURCE_DIR}/IO/Radar/vtkRadarPacketInterpreter.cxx
   ${CMAKE_CURRENT_SOURCE_DIR}/IO/Lidar/Velodyne/vtkVelodynePacketInterpreter.cxx
   ${CMAKE_CURRENT_SOURCE_DIR}/IO/Lidar/KITTIDataSet/vtkLidarKITTIDataSetReader.cxx
   ${CMAKE_CURRENT_SOURCE_DIR}/IO/GPS-IMU/Velodyne/vtkVelodyneHDLPositionReader.cxx
@@ -225,6 +228,8 @@ list(APPEND servermanager_xml
   xml/TemporalTransformsReader.xml
   xml/TemporalTransformsWriter.xml
   xml/TemporalTransformsApplier.xml
+  xml/Radar.xml
+  xml/RadarPacketInterpreter.xml
   )
 
 if (ENABLE_PCL)
@@ -293,6 +298,7 @@ list(APPEND deps
 set(plugin_include_dirs
   ${CMAKE_CURRENT_SOURCE_DIR}/Common
   ${CMAKE_CURRENT_SOURCE_DIR}/Common/Network
+  ${CMAKE_CURRENT_SOURCE_DIR}/IO/Radar
   ${CMAKE_CURRENT_SOURCE_DIR}/IO/Lidar/Common
   ${CMAKE_CURRENT_SOURCE_DIR}/IO/Lidar/KITTIDataSet
   ${CMAKE_CURRENT_SOURCE_DIR}/IO/Lidar/Velodyne

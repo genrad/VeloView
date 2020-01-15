@@ -1,0 +1,12 @@
+<ServerManagerConfiguration>
+  <ProxyGroup name="RadarPacketInterpreter">
+
+    <SourceProxy name="RadarPacketInterpreter"
+               class="vtkRadarPacketInterpreter"
+               label="Radar Interpreter"
+               base_proxygroup="base_RadarPacketInterpreter_g"
+               base_proxyname="base_RadarPacketInterpreter">
+
+    </SourceProxy>
+  </ProxyGroup>
+</ServerManagerConfiguration>

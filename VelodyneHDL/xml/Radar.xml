@@ -1,0 +1,85 @@
+<ServerManagerConfiguration>
+
+<!-- Begin RadarProvider -->
+<ProxyGroup name="sources">
+  <SourceProxy name="RadarProvider" class="vtkRadarProvider" label="RadarProvider">
+
+    <OutputPort name="Frame"       index="0" id="port0" />
+
+    <IntVectorProperty
+      name="DummyProperty"
+      command="SetDummyProperty"
+      default_values="0"
+      number_of_elements="1"
+      panel_visibility="advanced">
+      <Documentation>
+        A dummy property to get the filter to refresh
+      </Documentation>
+    </IntVectorProperty>
+
+  </SourceProxy>
+</ProxyGroup>
+<!-- End RadarProvider -->
+
+<!-- Begin RadarStream -->
+<ProxyGroup name="sources">
+<SourceProxy name="RadarStream"
+             class="vtkRadarStream"
+             label="Radar Stream"
+             base_proxygroup="sources"
+             base_proxyname="RadarProvider">
+    <Documentation
+       short_help="Radar Stream"
+       long_help="Radar Stream">
+    </Documentation>
+
+    <!-- Please notice that this Property is duplicate so that:
+         it can be place in a user friendly location in the generate GUI -->
+    <!--    <ProxyProperty
+      name="PacketInterpreter"
+      command="SetInterpreter"
+      label="Interpreter">
+      <ProxyListDomain name="proxy_list">
+        <Group name="RadarPacketInterpreter"/>
+      </ProxyListDomain>
+    </ProxyProperty>
+    -->
+
+    <Property
+      name="Poll"
+      command="Poll" />
+
+    <Property
+      name="Start"
+      command="Start" />
+
+    <Property
+      name="Stop"
+      command="Stop" />
+
+    <DoubleVectorProperty
+            name="TimestepValues"
+            repeatable="1"
+            information_only="1">
+          <TimeStepsInformationHelper/>
+    </DoubleVectorProperty>
+
+    <Hints>
+      <LiveSource />
+    </Hints>
+
+ </SourceProxy>
+</ProxyGroup>
+<!-- End RadarStream -->
+
+<!-- Begin RadarPacketInterpreter -->
+<ProxyGroup name="base_RadarPacketInterpreter_g">
+  <SourceProxy name="base_RadarPacketInterpreter"
+         class="vtkRadarPacketInterpreter"
+         label="vtkRadarPacketInterpreter">
+
+  </SourceProxy>
+</ProxyGroup>
+<!-- End RadarPacketInterpreter -->
+
+</ServerManagerConfiguration>
